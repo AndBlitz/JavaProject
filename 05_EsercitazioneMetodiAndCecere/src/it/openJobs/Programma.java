@@ -6,8 +6,9 @@ public class Programma {
 
 	public static void main(String[] args) {
 
-		Scanner scanner = new Scanner(System.in);
-
+		Scanner inputInt = new Scanner(System.in);
+		Scanner inputString = new Scanner(System.in);
+		Scanner inputDouble = new Scanner(System.in);
 		int a = 3;
 		int b = 4;
 		int c = somma(a, b);
@@ -27,20 +28,19 @@ public class Programma {
 
 		// Scanner Metodo Inverti:
 		System.out.print("Inserisci la parola: ");
-		String parola2 = scanner.nextLine();
+		String parola2 = inputString.nextLine();
 		String parola2Invertita = inverti(parola2);
 		System.out.println("Tramite scanner parola invertita: " + parola2Invertita);
-		Scanner input = new Scanner(System.in);
-		
-		
-		// scanner metodo media:	
-		System.out.print("Inserisci la dimensione che vuoi dare all'array");
-		int dimensione = input.nextInt();
+
+		// scanner metodo media:
+		System.out.print("Inserisci la dimensione che vuoi dare all'array: ");
+		int dimensione = inputInt.nextInt();
+
 		double[] numeri = new double[dimensione];
-		
+
 		for (int i = 0; i < dimensione; i++) {
 			System.out.print("Inserisci il " + (i + 1) + "° numero: ");
-			numeri[i] = (int) input.nextDouble();
+			numeri[i] = inputDouble.nextDouble();
 		}
 
 		double risultato2 = media(numeri);
@@ -48,11 +48,15 @@ public class Programma {
 
 		// scanner metodo somma:
 		System.out.print("Inserisci primo numero: ");
-		int primoNumero = scanner.nextInt();
+		int primoNumero = inputInt.nextInt();
 		System.out.print("Inserisci secondo numero: ");
-		int secondoNumero = scanner.nextInt();
+		int secondoNumero = inputInt.nextInt();
 		int sommaNumeri = primoNumero + secondoNumero;
 		System.out.println("La somma dei numeri: " + primoNumero + " + " + secondoNumero + " = " + sommaNumeri);
+
+		inputDouble.close();
+		inputInt.close();
+		inputString.close();
 
 	}
 
@@ -70,7 +74,7 @@ public class Programma {
 	// poi ottengo la media dividendo la somma per la dimensione dell'array. E
 	// tramite un return ritorno il risultato
 	public static double media(double[] numeri) {
-		int somma = 0;
+		double somma = 0;
 		for (int i = 0; i < numeri.length; i++) {
 			somma += numeri[i];
 		}
